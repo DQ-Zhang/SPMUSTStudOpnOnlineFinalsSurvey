@@ -66,7 +66,7 @@ def cor_matrix(csv,xaxis,yaxis,title,colorscale):
     print(p_tab)
 
     #Heatmap annotated with OR
-    fig = ff.create_annotated_heatmap(p_tab,x=xaxis,y=yaxis,annotation_text=OR_tab,colorscale=colorscale)
+    fig = ff.create_annotated_heatmap(p_tab,x=xaxis,y=yaxis,annotation_text=OR_tab,colorscale=colorscale,font_colors=["rgb(255,255,255)"])
     fig.update_layout(title_text=title)
     fig.show()
 
@@ -77,7 +77,7 @@ title1='Prevalence of Opinions and Binary Confounders in Association with Each O
 
 #Color scale for negative correlation(red), no significant correlation(white) and positive correlation(red).
 #darker of color indicates smaller p values.
-colourscale1=[
+colorscale1=[
     "rgb(150,0,0)","rgb(200,0,0)","rgb(255,100,100)",
     "rgb(255,255,255)",
     "rgb(100,255,100)","rgb(0,200,0)","rgb(0,150,0)"
@@ -88,11 +88,11 @@ xaxis2=["Year1/Year2","Year1/Year3","Year1/Year4","Year2/Year3","Year2/Year4","Y
 title2='Prevalence of Opinions in Relation to Class'
 
 colorscale2=[
-    "rgb(255,100,100)",
+    "rgb(150,0,0)","rgb(200,0,0)","rgb(255,100,100)",
     "rgb(255,255,255)",
-    "rgb(100,255,100)","rgb(0,200,0)","rgb(0,150,0)"
+    "rgb(100,255,100)"
     ]
 
 #call function to plot the correlation matrix
-cor_matrix(csv1,axes,axes,title1,colorscale1)
+#cor_matrix(csv1,axes,axes,title1,colorscale1)
 cor_matrix(csv2,xaxis2,axes,title2,colorscale2)
